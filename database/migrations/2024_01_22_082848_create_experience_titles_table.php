@@ -11,16 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('experience_translations', function (Blueprint $table) {
+        Schema::create('experience_titles', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('experience_id')->unsigned();
-            $table->string('locale')->index();
-            $table->string('name');
-            $table->string('address')->nullable();
-            $table->text('description')->nullable();
+            $table->unsignedInteger('experience_id');
+            $table->unsignedInteger('title_id');
 
-            $table->unique(['experience_id', 'locale']);
             $table->foreign('experience_id')->references('id')->on('experiences')->onDelete('cascade');
+            $table->foreign('title_id')->references('id')->on('titles')->onDelete('cascade');
         });
     }
 
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('experience_translations');
+        Schema::dropIfExists('experience_titles');
     }
 };

@@ -2,16 +2,31 @@
 
 namespace App\Models;
 
-use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
-use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Spatie\Translatable\HasTranslations;
 
-class Title extends Model implements TranslatableContract
+class Title extends Model
 {
-    use HasFactory, Translatable;
+    use HasFactory, HasTranslations;
 
-    public $translatedAttributes = ['name', 'intro'];
+    public $translatable = ['name', 'intro'];
 
-    protected $fillable = ['icon'];
+    protected $fillable = ['name', 'intro', 'icon'];
+
+    protected $casts = [
+        'name' => 'array',
+        'intro' => 'array',
+    ];
+
+    public function experiences(): BelongsToMany
+    {
+        return $this->belongsToMany(Experience::class)->using(ExperienceTitle::class);
+    }
+
+    public function projects(): BelongsToMany
+    {
+        return $this->belongsToMany(Project::class)->using(ProjectTitle::class);
+    }
 }

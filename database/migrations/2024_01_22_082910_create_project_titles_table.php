@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('project_translations', function (Blueprint $table) {
+        Schema::create('project_titles', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('project_id')->unsigned();
-            $table->string('locale')->index();
-            $table->string('name');
+            $table->unsignedInteger('project_id');
+            $table->unsignedInteger('title_id');
 
-            $table->unique(['project_id', 'locale']);
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
+            $table->foreign('title_id')->references('id')->on('titles')->onDelete('cascade');
         });
     }
 
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('project_translations');
+        Schema::dropIfExists('project_titles');
     }
 };
