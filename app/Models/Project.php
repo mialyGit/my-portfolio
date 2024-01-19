@@ -2,17 +2,20 @@
 
 namespace App\Models;
 
-use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
-use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Plank\Mediable\Mediable;
+use Spatie\Translatable\HasTranslations;
 
-class Project extends Model implements TranslatableContract
+class Project extends Model
 {
-    use HasFactory , Mediable, Translatable;
+    use HasFactory , HasTranslations, Mediable;
 
-    public $translatedAttributes = ['name'];
+    public $translatable = ['name'];
 
     protected $fillable = ['experience_id', 'icon', 'preview', 'code', 'is_visible'];
+
+    protected $casts = [
+        'name' => 'array',
+    ];
 }
