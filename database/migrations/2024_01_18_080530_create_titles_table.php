@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('titles', function (Blueprint $table) {
             $table->increments('id');
             $table->string('icon')->nullable();
-            $table->string('name');
+            $table->text('name');
             $table->text('intro')->nullable();
             $table->boolean('is_active')->default(false);
             $table->timestamps();

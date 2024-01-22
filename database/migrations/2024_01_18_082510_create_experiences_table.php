@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('experiences', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('address')->nullable();
+            $table->text('name');
+            $table->text('address')->nullable();
             $table->string('between')->nullable();
             $table->text('description')->nullable();
             $table->boolean('is_formation')->default(false);

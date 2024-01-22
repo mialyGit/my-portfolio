@@ -15,7 +15,7 @@ return new class extends Migration
             $table->increments('id');
             $table->integer('experience_id')->unsigned()->nullable();
             $table->string('icon')->nullable();
-            $table->string('name');
+            $table->text('name');
             $table->string('preview')->nullable();
             $table->string('code')->nullable();
             $table->boolean('is_visible')->default(true);
