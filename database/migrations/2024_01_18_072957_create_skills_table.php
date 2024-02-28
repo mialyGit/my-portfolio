@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('icon')->nullable();
             $table->string('name');
             $table->boolean('is_visible')->default(true);
+            $table->integer('order')->nullable()->default(1);
             $table->timestamps();
         });
     }

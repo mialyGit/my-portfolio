@@ -2,14 +2,14 @@
 
 namespace App\Models;
 
+use App\Traits\TranslationTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Spatie\Translatable\HasTranslations;
 
 class Title extends Model
 {
-    use HasFactory, HasTranslations;
+    use HasFactory, TranslationTrait;
 
     public $translatable = ['name', 'intro'];
 

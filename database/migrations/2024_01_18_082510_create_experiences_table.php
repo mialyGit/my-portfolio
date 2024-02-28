@@ -15,10 +15,11 @@ return new class extends Migration
             $table->increments('id');
             $table->text('name');
             $table->text('address')->nullable();
-            $table->string('between')->nullable();
+            $table->text('between')->nullable();
             $table->text('description')->nullable();
             $table->boolean('is_formation')->default(false);
             $table->boolean('is_visible')->default(true);
+            $table->integer('order')->nullable()->default(1);
             $table->timestamps();
         });
     }

@@ -2,17 +2,17 @@
 
 namespace App\Models;
 
+use App\Traits\TranslationTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Plank\Mediable\Mediable;
-use Spatie\Translatable\HasTranslations;
 
 class Project extends Model
 {
-    use HasFactory , HasTranslations, Mediable;
+    use HasFactory , Mediable, TranslationTrait;
 
-    public $translatable = ['name'];
+    public $translatable = ['name', 'description'];
 
     protected $fillable = ['experience_id', 'icon', 'preview', 'code', 'is_visible'];
 
