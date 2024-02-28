@@ -16,9 +16,11 @@ return new class extends Migration
             $table->integer('experience_id')->unsigned()->nullable();
             $table->string('icon')->nullable();
             $table->text('name');
+            $table->text('description')->nullable();
             $table->string('preview')->nullable();
             $table->string('code')->nullable();
             $table->boolean('is_visible')->default(true);
+            $table->integer('order')->nullable()->default(1);
 
             $table->foreign('experience_id')->references('id')->on('experiences')->onDelete('set null');
             $table->timestamps();

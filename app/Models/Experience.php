@@ -2,24 +2,25 @@
 
 namespace App\Models;
 
+use App\Traits\TranslationTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Plank\Mediable\Mediable;
-use Spatie\Translatable\HasTranslations;
 
 class Experience extends Model
 {
-    use HasFactory, HasTranslations, Mediable;
+    use HasFactory, Mediable, TranslationTrait;
 
-    public $translatable = ['name', 'address', 'description'];
+    public $translatable = ['name', 'address', 'description', 'between'];
 
-    protected $fillable = ['between', 'is_formation', 'is_visible'];
+    protected $fillable = ['is_formation', 'is_visible'];
 
     protected $casts = [
         'name' => 'array',
         'address' => 'array',
         'description' => 'array',
+        'between' => 'array',
     ];
 
     public function titles(): BelongsToMany

@@ -12,6 +12,7 @@
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
         "mcamara/laravel-localization": "^1.8",
+        "mgcodeur/super-translator": "^1.0",
         "plank/laravel-mediable": "^5.9",
         "spatie/laravel-translatable": "^6.5"
     },
