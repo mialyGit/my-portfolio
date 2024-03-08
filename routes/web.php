@@ -14,5 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('dashboard.index');
+});
+
+Route::group([
+    'prefix' => 'dashboard',
+    'namespace' => 'App\Http\Controllers\Dashboard',
+    'as' => 'dashboard.',
+], function ($router) {
+
+    Route::get('/', 'IndexController')->name('index');
+    Route::get('/profile', 'ProfileController@edit')->name('profile');
+    Route::post('/profile/save', 'ProfileController@save')->name('profile.save');
 });
