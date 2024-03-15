@@ -64,6 +64,15 @@
 @import url(./../vendor/aos/css/aos.min.css);
 @import url(./../vendor/perfect-scrollbar/css/perfect-scrollbar.css);
 @import url(./../vendor/metismenu/css/metisMenu.min.css);
+
+th.action {
+  width: 20% !important;
+}
+
+.btn-icon {
+  margin-right: 0.25rem !important;
+}
+
 .gradient_one {
   background-image: linear-gradient(to right, rgba(186, 1, 181, 0.85) 0%, rgba(103, 25, 255, 0.85) 100%); }
 
@@ -260,7 +269,7 @@ body {
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #BDBDC7;
+  color: #3d4465;
   text-align: left;
   background-color: rgba(88, 115, 254, 0.04); }
 
@@ -10292,7 +10301,9 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
   padding: 1.5625rem 0 10px;
   text-transform: uppercase;
   font-size: 0.75rem;
-  letter-spacing: 0.05rem; }
+  letter-spacing: 0.05rem;
+  color: #BDBDC7;
+ }
 
 .nav-badge {
   position: absolute;

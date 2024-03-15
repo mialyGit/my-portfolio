@@ -6,11 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>@stack('page_title', 'Dashboard') | {{ env('APP_NAME') }} </title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset ('assets/images/favicon.png') }}">
     <!-- Custom Stylesheet -->
-    <link href="{{ asset ('assets/css/style.css') }}" rel="stylesheet">
     @stack('css')
+    <link href="{{ asset ('assets/css/style.css') }}" rel="stylesheet">
+
 </head>
 
 <body>
