@@ -16,7 +16,15 @@
                     <i class="icon icon-single-04"></i>
                     <span class="nav-text">@lang('Profile')</span>
                 </a>
-            </li>    
+            </li>  
+            
+            <li class="nav-label">@lang('Others')</li>
+            <li>
+                <a href="{{ route('dashboard.medias.index') }}" aria-expanded="false">
+                    <i class="icon icon-app-store"></i>
+                    <span class="nav-text">@lang('Medias')</span>
+                </a>
+            </li>  
             
         </ul>
     </div>
